@@ -32,12 +32,12 @@ export const GLBModel = ({ path, hover, scale = 1, position = [0, 0, 0] }: { pat
 };
 
 // Preload models to avoid stutter
-useGLTF.preload('/models/KNOBO.glb');
-useGLTF.preload('/models/LOOPO.glb');
-useGLTF.preload('/models/FADO.glb');
-useGLTF.preload('/models/BEATO.glb');
-useGLTF.preload('/models/MIXO.glb');
-useGLTF.preload('/models/BEATO16.glb');
+useGLTF.preload(`${import.meta.env.BASE_URL}models/KNOBO.glb`);
+useGLTF.preload(`${import.meta.env.BASE_URL}models/LOOPO.glb`);
+useGLTF.preload(`${import.meta.env.BASE_URL}models/FADO.glb`);
+useGLTF.preload(`${import.meta.env.BASE_URL}models/BEATO.glb`);
+useGLTF.preload(`${import.meta.env.BASE_URL}models/MIXO.glb`);
+useGLTF.preload(`${import.meta.env.BASE_URL}models/BEATO16.glb`);
 
 // --- Lighting & Environment ---
 

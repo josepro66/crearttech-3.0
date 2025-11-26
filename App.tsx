@@ -97,7 +97,7 @@ const App = () => {
           {/* Logo + Brand */}
           <div className="flex items-center gap-3">
             <img
-              src="/textures/logo.png"
+              src={`${import.meta.env.BASE_URL}textures/logo.png`}
               alt="Creart Tech"
               className="h-10 w-auto animate-pulse-glow"
               style={{
