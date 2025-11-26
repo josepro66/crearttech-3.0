@@ -89,7 +89,7 @@ export default function AboutSection() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
-                                className="flex items-start gap-4 bg-black/30 border border-gray-700 rounded-lg p-4 hover:border-cyan-500/50 transition-all"
+                                className="flex items-start gap-4 bg-white/5 border border-white/10 rounded-lg p-4 hover:border-cyan-500/50 hover:bg-white/10 transition-all backdrop-blur-sm"
                             >
                                 <div className="text-4xl">{feature.icon}</div>
                                 <div>
