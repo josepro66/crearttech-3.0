@@ -4,40 +4,89 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Environment } from '@react-three/drei';
 import { GLBModel } from './ThreeElements';
 
-{
-    id: 1,
+const COLOR_MAPS: Record<string, {
+    glow: string;
+    border: string;
+    text: string;
+    dot: string;
+    button: string;
+    shadow: string;
+    selectorActive: string;
+    selectorBorder: string;
+    selectorText: string;
+}> = {
+    cyan: {
+        glow: 'from-cyan-500/10',
+        border: 'border-cyan-500/50',
+        text: 'text-cyan-400',
+        dot: 'bg-cyan-400',
+        button: 'from-cyan-600 to-cyan-500',
+        shadow: 'hover:shadow-cyan-500/50',
+        selectorActive: 'bg-cyan-500/20',
+        selectorBorder: 'border-cyan-500',
+        selectorText: 'text-cyan-400'
+    },
+    purple: {
+        glow: 'from-purple-500/10',
+        border: 'border-purple-500/50',
+        text: 'text-purple-400',
+        dot: 'bg-purple-400',
+        button: 'from-purple-600 to-purple-500',
+        shadow: 'hover:shadow-purple-500/50',
+        selectorActive: 'bg-purple-500/20',
+        selectorBorder: 'border-purple-500',
+        selectorText: 'text-purple-400'
+    },
+    fuchsia: {
+        glow: 'from-fuchsia-500/10',
+        border: 'border-fuchsia-500/50',
+        text: 'text-fuchsia-400',
+        dot: 'bg-fuchsia-400',
+        button: 'from-fuchsia-600 to-fuchsia-500',
+        shadow: 'hover:shadow-fuchsia-500/50',
+        selectorActive: 'bg-fuchsia-500/20',
+        selectorBorder: 'border-fuchsia-500',
+        selectorText: 'text-fuchsia-400'
+    }
+};
+
+const FEATURED_PRODUCTS = [
+    {
+        id: 1,
         name: 'KNOBO Pro',
-            category: 'Knob Controller',
-                image: `${import.meta.env.BASE_URL}models/KNOBO.glb`,
-                    price: 299,
-                        features: ['16 Encoders', 'RGB Backlight', 'USB-C'],
-                            color: 'cyan',
-                                scale: 25
-},
-{
-    id: 2,
+        category: 'Knob Controller',
+        image: `${import.meta.env.BASE_URL}models/KNOBO.glb`,
+        price: 299,
+        features: ['16 Encoders', 'RGB Backlight', 'USB-C'],
+        color: 'cyan',
+        scale: 25
+    },
+    {
+        id: 2,
         name: 'BEATO Studio',
-            category: 'Pad Controller',
-                image: `${import.meta.env.BASE_URL}models/BEATO.glb`,
-                    price: 399,
-                        features: ['16 Pads', 'Velocity Sensitive', 'MIDI 2.0'],
-                            color: 'purple',
-                                scale: 22
-},
-{
-    id: 3,
+        category: 'Pad Controller',
+        image: `${import.meta.env.BASE_URL}models/BEATO.glb`,
+        price: 399,
+        features: ['16 Pads', 'Velocity Sensitive', 'MIDI 2.0'],
+        color: 'purple',
+        scale: 22
+    },
+    {
+        id: 3,
         name: 'MIXO Elite',
-            category: 'Mixer Controller',
-                image: `${import.meta.env.BASE_URL}models/MIXO.glb`,
-                    price: 499,
-                        features: ['8 Faders', '24 Knobs', 'Motorized'],
-                            color: 'fuchsia',
-                                scale: 20
-}
+        category: 'Mixer Controller',
+        image: `${import.meta.env.BASE_URL}models/MIXO.glb`,
+        price: 499,
+        features: ['8 Faders', '24 Knobs', 'Motorized'],
+        color: 'fuchsia',
+        scale: 20
+    }
+];
 
 export default function ProductShowcase() {
     const [activeIndex, setActiveIndex] = useState(0);
     const activeProduct = FEATURED_PRODUCTS[activeIndex];
+    const colors = COLOR_MAPS[activeProduct.color];
 
     return (
         <section id="showcase" className="relative py-24 px-6 bg-gradient-to-b from-black/40 to-transparent">
@@ -67,7 +116,7 @@ export default function ProductShowcase() {
                     >
                         <div className="aspect-square bg-gradient-to-br from-gray-900 to-black border border-gray-700 rounded-2xl p-8 relative overflow-hidden shadow-2xl">
                             {/* Decorative glow */}
-                            <div className={`absolute inset-0 bg-gradient-to-br from-${activeProduct.color}-500/10 to-transparent blur-3xl`}></div>
+                            <div className={`absolute inset-0 bg-gradient-to-br ${colors.glow} to-transparent blur-3xl`}></div>
 
                             {/* Grid Background */}
                             <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
@@ -124,8 +173,8 @@ export default function ProductShowcase() {
                             </div>
 
                             {/* Corner accents */}
-                            <div className={`absolute top-4 left-4 w-12 h-12 border-t-2 border-l-2 border-${activeProduct.color}-500/50`}></div>
-                            <div className={`absolute bottom-4 right-4 w-12 h-12 border-b-2 border-r-2 border-${activeProduct.color}-500/50`}></div>
+                            <div className={`absolute top-4 left-4 w-12 h-12 border-t-2 border-l-2 ${colors.border}`}></div>
+                            <div className={`absolute bottom-4 right-4 w-12 h-12 border-b-2 border-r-2 ${colors.border}`}></div>
                         </div>
                     </motion.div>
 
@@ -139,7 +188,7 @@ export default function ProductShowcase() {
                                 exit={{ opacity: 0, x: -50 }}
                                 transition={{ duration: 0.5 }}
                             >
-                                <span className={`text-${activeProduct.color}-400 text-sm font-semibold uppercase tracking-wider`}>
+                                <span className={`${colors.text} text-sm font-semibold uppercase tracking-wider`}>
                                     {activeProduct.category}
                                 </span>
                                 <h3 className="text-4xl font-bold text-white mt-2 mb-4">
@@ -159,14 +208,14 @@ export default function ProductShowcase() {
                                             transition={{ delay: index * 0.1 }}
                                             className="flex items-center gap-3"
                                         >
-                                            <div className={`w-2 h-2 rounded-full bg-${activeProduct.color}-400`}></div>
+                                            <div className={`w-2 h-2 rounded-full ${colors.dot}`}></div>
                                             <span className="text-gray-300">{feature}</span>
                                         </motion.div>
                                     ))}
                                 </div>
 
                                 {/* CTA */}
-                                <button className={`w-full py-4 bg-gradient-to-r from-${activeProduct.color}-600 to-${activeProduct.color}-500 text-white font-bold rounded-lg hover:shadow-lg hover:shadow-${activeProduct.color}-500/50 transition-all hover:scale-105`}>
+                                <button className={`w-full py-4 bg-gradient-to-r ${colors.button} text-white font-bold rounded-lg hover:shadow-lg ${colors.shadow} transition-all hover:scale-105`}>
                                     Personalizar Ahora
                                 </button>
                             </motion.div>
@@ -174,18 +223,21 @@ export default function ProductShowcase() {
 
                         {/* Product Selector */}
                         <div className="flex gap-4 mt-8">
-                            {FEATURED_PRODUCTS.map((product, index) => (
-                                <button
-                                    key={product.id}
-                                    onClick={() => setActiveIndex(index)}
-                                    className={`flex-1 py-3 rounded-lg font-semibold transition-all ${activeIndex === index
-                                        ? `bg-${product.color}-500/20 border-2 border-${product.color}-500 text-${product.color}-400`
-                                        : 'bg-gray-800 border-2 border-gray-700 text-gray-400 hover:border-gray-600'
-                                        }`}
-                                >
-                                    {product.name.split(' ')[0]}
-                                </button>
-                            ))}
+                            {FEATURED_PRODUCTS.map((product, index) => {
+                                const prodColors = COLOR_MAPS[product.color];
+                                return (
+                                    <button
+                                        key={product.id}
+                                        onClick={() => setActiveIndex(index)}
+                                        className={`flex-1 py-3 rounded-lg font-semibold transition-all ${activeIndex === index
+                                            ? `${prodColors.selectorActive} border-2 ${prodColors.selectorBorder} ${prodColors.selectorText}`
+                                            : 'bg-gray-800 border-2 border-gray-700 text-gray-400 hover:border-gray-600'
+                                            }`}
+                                    >
+                                        {product.name.split(' ')[0]}
+                                    </button>
+                                );
+                            })}
                         </div>
                     </div>
                 </div>
