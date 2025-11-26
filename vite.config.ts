@@ -10,6 +10,7 @@ export default defineConfig(({ mode }) => {
       host: '0.0.0.0',
     },
     base: process.env.NODE_ENV === 'production' ? '/crearttech-3.0/' : '/',
+    // Force rebuild for Tailwind config update
     plugins: [react()],
     define: {
       'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),

@@ -14,7 +14,7 @@ const MidiGuide = () => {
                 'Creadores digitales que usan Unity o Resolume',
                 'Músicos que buscan interacción física y robustez'
             ],
-            image: '/textures/fotos controladores/BEATO16.png'
+            image: `${import.meta.env.BASE_URL}textures/fotos controladores/BEATO16.png`
         },
         {
             id: 'mixo',
@@ -28,7 +28,7 @@ const MidiGuide = () => {
                 'Ingenieros de sonido y artistas que trabajan con efectos',
                 'Personas que quieren un controlador versátil y portátil'
             ],
-            image: '/textures/fotos controladores/MIXO.png'
+            image: `${import.meta.env.BASE_URL}textures/fotos controladores/MIXO.png`
         },
         {
             id: 'beato8',
@@ -40,7 +40,7 @@ const MidiGuide = () => {
                 'Productores que prefieren un diseño minimalista pero funcional',
                 'Personas que buscan una opción más sencilla que el Beato16'
             ],
-            image: '/textures/fotos controladores/BEATO8.png'
+            image: `${import.meta.env.BASE_URL}textures/fotos controladores/BEATO8.png`
         },
         {
             id: 'fado',
@@ -54,7 +54,7 @@ const MidiGuide = () => {
                 'Artistas que prefieren un enfoque centrado en los faders',
                 'Usuarios de Ableton Live, Resolume y otros DAWs'
             ],
-            image: '/textures/fotos controladores/FADO.png'
+            image: `${import.meta.env.BASE_URL}textures/fotos controladores/FADO.png`
         },
         {
             id: 'loopo',
@@ -67,7 +67,7 @@ const MidiGuide = () => {
                 'Usuarios de pedaleras digitales y live looping',
                 'Artistas que buscan libertad en el escenario'
             ],
-            image: '/textures/fotos controladores/LOOPO.png'
+            image: `${import.meta.env.BASE_URL}textures/fotos controladores/LOOPO.png`
         },
         {
             id: 'knobo',
@@ -80,7 +80,7 @@ const MidiGuide = () => {
                 'Músicos que buscan un controlador especializado en perillas',
                 'Usuarios de Ableton Live y Resolume'
             ],
-            image: '/textures/fotos controladores/KNOBO.png'
+            image: `${import.meta.env.BASE_URL}textures/fotos controladores/KNOBO.png`
         }
     ];
 
