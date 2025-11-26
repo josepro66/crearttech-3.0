@@ -4,38 +4,36 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Environment } from '@react-three/drei';
 import { GLBModel } from './ThreeElements';
 
-const FEATURED_PRODUCTS = [
-    {
-        id: 1,
+{
+    id: 1,
         name: 'KNOBO Pro',
-        category: 'Knob Controller',
-        image: '/models/KNOBO.glb',
-        price: 299,
-        features: ['16 Encoders', 'RGB Backlight', 'USB-C'],
-        color: 'cyan',
-        scale: 25
-    },
-    {
-        id: 2,
+            category: 'Knob Controller',
+                image: `${import.meta.env.BASE_URL}models/KNOBO.glb`,
+                    price: 299,
+                        features: ['16 Encoders', 'RGB Backlight', 'USB-C'],
+                            color: 'cyan',
+                                scale: 25
+},
+{
+    id: 2,
         name: 'BEATO Studio',
-        category: 'Pad Controller',
-        image: '/models/BEATO.glb',
-        price: 399,
-        features: ['16 Pads', 'Velocity Sensitive', 'MIDI 2.0'],
-        color: 'purple',
-        scale: 22
-    },
-    {
-        id: 3,
+            category: 'Pad Controller',
+                image: `${import.meta.env.BASE_URL}models/BEATO.glb`,
+                    price: 399,
+                        features: ['16 Pads', 'Velocity Sensitive', 'MIDI 2.0'],
+                            color: 'purple',
+                                scale: 22
+},
+{
+    id: 3,
         name: 'MIXO Elite',
-        category: 'Mixer Controller',
-        image: '/models/MIXO.glb',
-        price: 499,
-        features: ['8 Faders', '24 Knobs', 'Motorized'],
-        color: 'fuchsia',
-        scale: 20
-    }
-];
+            category: 'Mixer Controller',
+                image: `${import.meta.env.BASE_URL}models/MIXO.glb`,
+                    price: 499,
+                        features: ['8 Faders', '24 Knobs', 'Motorized'],
+                            color: 'fuchsia',
+                                scale: 20
+}
 
 export default function ProductShowcase() {
     const [activeIndex, setActiveIndex] = useState(0);

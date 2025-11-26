@@ -128,7 +128,7 @@ function NebulaCloud() {
 
 // Logo 3D Model
 function Logo3DModel() {
-    const gltf = useGLTF('/models/logo3d.glb') as any;
+    const gltf = useGLTF(`${import.meta.env.BASE_URL}models/logo3d.glb`) as any;
 
     const scene = useMemo(() => {
         const clonedScene = gltf.scene.clone();

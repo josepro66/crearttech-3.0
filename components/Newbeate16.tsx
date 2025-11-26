@@ -108,7 +108,7 @@ export default function Newbeate16() {
 
                                     <Suspense fallback={null}>
                                         <GLBModel
-                                            path="/models/BEATO16.glb"
+                                            path={`${import.meta.env.BASE_URL}models/BEATO16.glb`}
                                             hover={false}
                                             scale={22.0}
                                             position={[0, 0.2, 0]}
