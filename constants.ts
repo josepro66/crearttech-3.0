@@ -19,7 +19,7 @@ export const MOCK_PRODUCTS: Product[] = [
     description: 'Compacto, dinámico y listo para la acción. Control rotatorio de precisión.',
     specs: ['Rotary Encoder', 'Touch Sensitive', 'USB-C'],
     modelType: 'knob',
-    modelPath: '/models/KNOBO.glb',
+    modelPath: `${import.meta.env.BASE_URL}models/KNOBO.glb`,
     scale: 12,
     color: '#ff0055'
   },
@@ -31,7 +31,7 @@ export const MOCK_PRODUCTS: Product[] = [
     description: 'Fluidez total, mezcla a tu manera. Perfecto para live looping.',
     specs: ['Loop Station', 'RGB Feedback', 'Portable'],
     modelType: 'pad',
-    modelPath: '/models/LOOPO.glb',
+    modelPath: `${import.meta.env.BASE_URL}models/LOOPO.glb`,
     scale: 11,
     color: '#00f3ff'
   },
@@ -43,7 +43,7 @@ export const MOCK_PRODUCTS: Product[] = [
     description: 'Control de faders suave y preciso para tu DAW.',
     specs: ['Motorized Faders', 'OLED Display', 'Metal Chassis'],
     modelType: 'fader',
-    modelPath: '/models/FADO.glb',
+    modelPath: `${import.meta.env.BASE_URL}models/FADO.glb`,
     scale: 11,
     color: '#ffffff'
   },
@@ -55,7 +55,7 @@ export const MOCK_PRODUCTS: Product[] = [
     description: 'Controlador MIDI con 8 botones ARCADE y 4 knobs asignables para control preciso de mezclas, efectos y automatizaciones en tiempo real. Cuerpo metálico robusto y personalizable.',
     specs: ['8 Botones ARCADE', '4 Knobs Asignables', 'Cuerpo Metálico', 'Personalizable'],
     modelType: 'pad',
-    modelPath: '/models/BEATO.glb',
+    modelPath: `${import.meta.env.BASE_URL}models/BEATO.glb`,
     scale: 11,
     color: '#d946ef'
   },
@@ -67,7 +67,7 @@ export const MOCK_PRODUCTS: Product[] = [
     description: 'La solución completa de mezcla compacta.',
     specs: ['3-Band EQ', 'Crossfader', 'FX Controls'],
     modelType: 'knob',
-    modelPath: '/models/MIXO.glb',
+    modelPath: `${import.meta.env.BASE_URL}models/MIXO.glb`,
     scale: 10,
     color: '#39ff14'
   },
@@ -79,7 +79,7 @@ export const MOCK_PRODUCTS: Product[] = [
     description: 'Nuevo Beato, más control que nunca. 16 pads RGB.',
     specs: ['16 RGB Pads', 'Sequencer Mode', 'MIDI 2.0'],
     modelType: 'pad',
-    modelPath: '/models/BEATO16.glb',
+    modelPath: `${import.meta.env.BASE_URL}models/BEATO16.glb`,
     scale: 10,
     color: '#8b5cf6'
   }
